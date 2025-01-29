@@ -1,0 +1,60 @@
+# Portfolio - Miriam Joana Bentolila
+
+## Description:
+This is a personal portfolio website built by Miriam Joana Bentolila, a junior full stack web developer based in Israel. The website showcases her skills, projects, services, and provides an easy way for users to contact her through a simple modal contact form.
+
+The portfolio features:
+- An **About Me** section with a brief introduction and contact details, as well as a downloadable [CV](https://drive.google.com/file/d/1Lr9iEmGkaDsySgfV5YgWhhJo8sfz6lfw/view?usp=drive_link).
+- A **Services** section that describes the services offered by Miriam, such as website development and WordPress customization.
+- A **Projects** gallery featuring six different web development projects, each with a description and a link to the live demo.
+- A **Contact** modal form for users to get in touch with Miriam.
+- A responsive design that adapts the layout for mobile and tablet screens.
+
+## Projects:
+1. **[Digital Clock](project1digitalclock.html)**:
+   - A simple digital clock built with HTML, CSS, and JavaScript that shows the current time.
+
+2. **[To-Do List App](project2todolist.html)**:
+   - A to-do list application to help you manage tasks, add, edit, and remove items easily.
+
+3. **[Unity Conversion](project3unityconversion.html)**:
+   - A project that converts between different units of measurement, helping users to easily calculate conversions.
+
+4. **[Calculator](project4calculator.html)**:
+   - A simple calculator to perform basic arithmetic operations such as addition, subtraction, multiplication, and division.
+
+5. **[Memory Number Game](project5memorygame.html)**:
+   - A fun memory game where users have to match pairs of numbers in the shortest time possible.
+
+6. **[Password Generator](project6passwordgenerator.html)**:
+   - A password generator tool to create strong and secure passwords with customizable length and complexity.
+
+## Features:
+- Fixed navigation bar for easy access to different sections.
+- Responsive design that adapts to all screen sizes (desktop, tablet, and mobile).
+- **Contact modal** form to allow users to send a message directly to Miriam (name, email, and message fields).
+- Links to download Miriam's [CV](https://drive.google.com/file/d/1Lr9iEmGkaDsySgfV5YgWhhJo8sfz6lfw/view?usp=drive_link).
+- Project gallery with descriptions and links to demo pages.
+- Use of HTML, CSS, and JavaScript to create interactive elements like the modal form and project links.
+- Hover effects and smooth transitions for project cards.
+
+## Technologies Used:
+- **HTML**: For structuring the content and layout of the page.
+- **CSS**: For styling and making the website visually appealing.
+- **JavaScript**: For interactivity, including the modal contact form and responsive navigation bar.
+
+## File Structure:
+- **index.html**: Main HTML file containing the structure of the website, including all content sections (About Me, Services, Projects, etc.).
+- **styles.css**: External CSS file containing all the styling rules for the website.
+- **script.js**: External JavaScript file that controls the functionality of the modal contact form and the interactive elements.
+
+## Contact:
+- **Email**: [bentolilamiriam03@gmail.com](mailto:bentolilamiriam03@gmail.com)
+- **Phone**: +972 533 252 835
+- **Location**: Israel
+
+## License:
+This project is licensed under the MIT License. You can freely modify, use, and distribute the code under this license.
+
+## Acknowledgements:
+- The logos used for HTML, CSS, and JavaScript are sourced from Wikimedia and are used for educational purposes to highlight the technologies employed.

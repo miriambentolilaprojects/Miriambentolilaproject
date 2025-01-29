@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .converter-container {
+            width: 300px;
+            padding: 20px;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .converter-container h1 {
+            text-align: center;
+            color: #3498db;
+        }
+
+        .converter-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .converter-container input,
+        .converter-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .converter-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .converter-container button:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #2ecc71;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="converter-container">
+        <h1>Unit Converter</h1>
+        <label for="unit">Choose a conversion:</label>
+        <select id="unit">
+            <option value="km-to-miles">Kilometers to Miles</option>
+            <option value="c-to-f">Celsius to Fahrenheit</option>
+            <option value="kg-to-lbs">Kilograms to Pounds</option>
+        </select>
+        <label for="value">Enter value:</label>
+        <input type="number" id="value" placeholder="Enter a value">
+        <button onclick="convert()">Convert</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function convert() {
+            const unit = document.getElementById('unit').value;
+            const value = parseFloat(document.getElementById('value').value);
+            let result;
+
+            if (isNaN(value)) {
+                document.getElementById('result').textContent = "Please enter a valid number.";
+                return;
+            }
+
+            switch (unit) {
+                case "km-to-miles":
+                    result = (value * 0.621371).toFixed(2) + " miles";
+                    break;
+                case "c-to-f":
+                    result = ((value * 9 / 5) + 32).toFixed(2) + " °F";
+                    break;
+                case "kg-to-lbs":
+                    result = (value * 2.20462).toFixed(2) + " lbs";
+                    break;
+            }
+
+            document.getElementById('result').textContent = `Result: ${result}`;
+        }
+    </script>
+</body>
+
+</html>

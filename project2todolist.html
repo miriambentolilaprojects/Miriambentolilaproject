@@ -1,0 +1,37 @@
+<!-- Proyecto 2: To-Do List App -->
+<section id="project2" class="project-page">
+    <h2>To-Do List App</h2>
+    <p>Manage your daily tasks with this to-do list app.</p>
+    <ul id="todo-list" class="todo-list">
+        <!-- Tareas iniciales -->
+        <li>
+            <span>Task 1</span>
+            <button onclick="removeTask(this)">Delete</button>
+        </li>
+        <li>
+            <span>Task 2</span>
+            <button onclick="removeTask(this)">Delete</button>
+        </li>
+    </ul>
+    <input type="text" id="new-task" placeholder="Enter new task" />
+    <button onclick="addTask()">Add Task</button>
+
+    <script>
+        // Función para agregar una tarea
+        function addTask() {
+            const taskInput = document.getElementById('new-task');
+            const newTask = taskInput.value.trim();
+            if (newTask) {
+                const li = document.createElement('li');
+                li.innerHTML = `<span>${newTask}</span><button onclick="removeTask(this)">Delete</button>`;
+                document.getElementById('todo-list').appendChild(li);
+                taskInput.value = ''; // Limpiar el campo de entrada
+            }
+        }
+
+        // Función para eliminar una tarea
+        function removeTask(button) {
+            button.parentElement.remove();
+        }
+    </script>
+</section>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Miriam Joana Bentolila</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a,
+        header nav button {
+            color: #fff;
+            text-decoration: none;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        header nav a:hover,
+        header nav button:hover {
+            color: orange;
+        }
+
+        .container {
+            padding: 100px 20px 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .about-section {
+            background-color: orange;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 30px 20px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            overflow: hidden;
+            /* Asegura que el texto no se desborde */
+        }
+
+        .project-card a {
+            color: orange;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            font-size: 36px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            margin-bottom: 15px;
+        }
+
+        .project-card:hover {
+            background-color: orange;
+            color: #333;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                /* Una columna en pantallas pequeñas */
+            }
+
+            .project-card {
+                height: auto;
+                /* Permite que el recuadro se ajuste al contenido */
+                padding: 20px;
+                /* Menos espacio en pantallas pequeñas */
+            }
+
+            .project-card p {
+                font-size: 12px;
+                /* Fuente más pequeña para pantallas pequeñas */
+                margin-top: 8px;
+            }
+        }
+
+        #contact-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid orange;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 2000;
+        }
+
+        #contact-modal.active {
+            display: block;
+        }
+
+        #modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1999;
+        }
+
+        #modal-overlay.active {
+            display: block;
+        }
+
+        .close-modal {
+            background: orange;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            background: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .logos-container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .logos-container img {
+            width: 50px;
+            height: 50px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="https://via.placeholder.com/150" alt="Avatar">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <button id="contact-button">Contact</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="about" class="about-section">
+            <h2>About Me</h2>
+            <p>
+                Hello! My name is Miriam Joana Bentolila, and I am a junior full stack web developer based in Israel. I
+                have experience building websites using HTML, CSS, JavaScript, and WordPress. I am passionate about
+                continuous learning and always seek new challenges to grow my skills.
+            </p>
+            <p>
+                Feel free to <a
+                    href="https://drive.google.com/file/d/1Lr9iEmGkaDsySgfV5YgWhhJo8sfz6lfw/view?usp=drive_link"
+                    target="_blank" style="color: #333; text-decoration: underline;">download my CV</a>. Here are my
+                contact details:
+            </p>
+            <ul style="list-style: none; padding: 0;">
+                <li>Email: <a href="mailto:bentolilamiriam03@gmail.com"
+                        style="color: #333;">bentolilamiriam03@gmail.com</a></li>
+                <li>Phone: <a href="tel:+972533252835" style="color: #333;">+972 533 252 835</a></li>
+                <li>Location: Israel</li>
+            </ul>
+        </section>
+
+        <div class="logos-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML Logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS Logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo">
+        </div>
+
+        <section id="services" class="section">
+            <h2>Services</h2>
+            <p>I offer services such as website development, WordPress customization, and responsive design to bring
+                your ideas to life.</p>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="gallery">
+                <div class="project-card">
+                    <a href="project1digitalclock.html" target="_blank">
+                        Digital Clock
+                    </a>
+                    <img src="https://via.placeholder.com/400x300/0000FF/808080?text=Digital+Clock" alt="Digital Clock">
+                    <p>A simple digital clock built with HTML, CSS, and JavaScript that shows the current time.</p>
+                </div>
+                <div class="project-card">
+                    <a href="project2todolist.html" target="_blank">
+                        To-Do List App
+                    </a>
+                    <img src="https://via.placeholder.com/400x300/008000/FFFFFF?text=To-Do+List+App"
+                        alt="To-Do List App">
+                    <p>A to-do list application to help you manage tasks, add, edit, and remove items easily.</p>
+                </div>
+                <div class="project-card">
+                    <a href="project3unityconversion.html" target="_blank">
+                        Unity Conversion
+                    </a>
+                    <img src="https://via.placeholder.com/400x300/FF5733/FFFFFF?text=Unity+Conversion"
+                        alt="Unity Conversion">
+                    <p>A project that converts between different units of measurement, helping users to easily calculate
+                        conversions.</p>
+                </div>
+                <div class="project-card">
+                    <a href="project4calculator.html" target="_blank">
+                        Calculator
+                    </a>
+                    <img src="https://via.placeholder.com/400x300/F4A261/FFFFFF?text=Calculator" alt="Calculator">
+                    <p>A simple calculator to perform basic arithmetic operations such as addition, subtraction,
+                        multiplication, and division.</p>
+                </div>
+                <div class="project-card">
+                    <a href="project5memorygame.html" target="_blank">
+                        Memory Number Game
+                    </a>
+                    <img src="https://via.placeholder.com/400x300/2F855A/FFFFFF?text=Memory+Game"
+                        alt="Memory Number Game">
+                    <p>A fun memory game where users have to match pairs of numbers in the shortest time possible.</p>
+                </div>
+                <div class="project-card">
+                    <a href="project6passwordgenerator.html" target="_blank">
+                        Password Generator
+                    </a>
+                    <img src="https://via.placeholder.com/400x300/D69E2E/FFFFFF?text=Password+Generator"
+                        alt="Password Generator">
+                    <p>A password generator tool to create strong and secure passwords with customizable length and
+                        complexity.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="modal-overlay"></div>
+    <div id="contact-modal">
+        <h2>Contact Form</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+            <button type="submit">Send</button>
+            <button type="button" class="close-modal">Close</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Miriam Joana Bentolila. All rights reserved</p>
+    </footer>
+
+    <script>
+        const contactButton = document.getElementById('contact-button');
+        const modal = document.getElementById('contact-modal');
+        const overlay = document.getElementById('modal-overlay');
+        const closeButton = document.querySelector('.close-modal');
+
+        contactButton.addEventListener('click', () => {
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        closeButton.addEventListener('click', () => {
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    </script>
+</body>
+
+</html>
